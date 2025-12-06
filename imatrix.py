@@ -1,6 +1,7 @@
 import pygame as p
 
 p.init()
+p.display.set_mode((1, 1))
 
 # Load image
 def load_img(image_path):

@@ -13,12 +13,16 @@ def draw_matrix(matrix, pixel_size=1, title="Image"):
                 running = False
                 p.quit()
 
+
         # Draw the matrix
         for i, row in enumerate(matrix):
             for j, val in enumerate(row):
+                
                 val = max(0, min(255, val))
-                color = (val, val, val)  # grayscale
-                p.draw.rect(window, color, (j*pixel_size, i*pixel_size, pixel_size, pixel_size))
+                colour = (val, val, val)  # grayscale
+                
+                p.draw.rect(window, colour, (j*pixel_size, i*pixel_size, pixel_size, pixel_size))
 
 
         p.display.flip()
+

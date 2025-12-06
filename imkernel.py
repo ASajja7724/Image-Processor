@@ -29,7 +29,7 @@ blur = [
     [1/16, 2/16, 1/16]
 ]
 
-def apply_kernel(matrix, kernel_matrix):
+def apply_kernel(matrix, kernel_matrix=edge):
     changed_matrix = []
     # Removes some checks, increasing efficiency
     for i in range(len(matrix)-2): 
