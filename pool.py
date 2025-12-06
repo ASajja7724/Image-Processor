@@ -2,8 +2,9 @@
 def max_pool(matrix, pool_size=2):
     pooled_vals = []
 
-    for i in range(0, len(matrix), pool_size):
-        for j in range(0, len(matrix[0]), pool_size):
+    # The modulus is used to prevent going out of range (i.e if the matrix cannot be split evenly by the pool siz)
+    for i in range(0, len(matrix) - len(matrix) % pool_size, pool_size):
+        for j in range(0, len(matrix[0]) - len(matrix[0]) % pool_size, pool_size):
             section = [
                 matrix[i][j], matrix[i][j+1],
                 matrix[i+1][j], matrix[i+1][j+1]
