@@ -17,7 +17,8 @@ def load_img(image_path):
         for x in range(width):
             # Get colour -> get_at returns (R,G,B,A)
             r,g,b,_ = image.get_at((x,y))
-            grey = (r+g+b) // 3
+            # Ink = 255, Paper = 0
+            grey = 255 - ((r+g+b) // 3) 
             row.append(grey)
 
         matrix.append(row)
