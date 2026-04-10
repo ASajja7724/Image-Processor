@@ -6,7 +6,7 @@ import random as r
 # training the model
 def train():
     # step one -> load the training data
-    print("Loadind data ...")
+    print("Loading data ...")
     training_data = load_mnist_csv("mnist_train.csv")
     
     # initalise the network - 784 inputs for the 28x28 pixels, and 10 outputs
