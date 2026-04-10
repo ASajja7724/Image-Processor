@@ -48,7 +48,11 @@ def train():
             if i % 1000 == 0 and i > 0:
                 avg_loss = total_loss / 1000
                 accuracy = (correct_predictions / 1000) * 100
-                print(f"Image {i}/{len(training_data)} - Loss: {avg_loss:.4f} - Accuracy: {accuracy:.2f}%")
+                progress = (i / len(training_data)) * 100
+
+                print(f"Pass {run+1}/{repeats} | [{progress:>3.0f}%] | "
+                      f"Loss: {avg_loss:.4f} | Acc: {accuracy:.2f}%")
+
                 total_loss = 0
                 correct_predictions = 0
 
