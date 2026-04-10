@@ -47,8 +47,22 @@ def train():
                 total_loss = 0
                 correct_predictions = 0
 
-    prediction("Training completed!")
+    print("Training completed!")
     return weights, biases
 
 if __name__ == "__main__":
     trained_weights, trained_biases = train()
+
+    # save the weigths into a json file
+    import json
+    
+    # We create a dictionary to hold both lists
+    brain_data = {
+        "weights": trained_weights, 
+        "biases": trained_biases
+    }
+    
+    with open("trained_params.json", "w") as f:
+        json.dump(brain_data, f)
+        
+    print("Brain saved to trained_params.json!")
