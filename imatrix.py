@@ -24,3 +24,30 @@ def load_img(image_path):
         matrix.append(row)
 
     return matrix
+
+def load_mnist_csv(filename):
+    # this will be tuple of the value and the pixels
+    data = []
+    with open (filename, "r") as f:
+        # skip the first line as this is for lables
+        next(f)
+        for line in f:
+            row = line.split(',')
+            # the first digit it the number label
+            label = int(row[0])
+            # the second part is the pixels in a flattened view
+            pixels = [int(pixel) for pixel in row[1:]]
+
+            # add the values to the data
+            data.append((label, pixels))
+
+    return data
+
+# reshaping a flat list to apply a kernel
+def reshape_to_2D(flat_list, size=28):
+    # MNIST has a list of 284 pixels (28 by 28 sqaure)
+    matrix = []
+    for i in range(0, len(flat_list), size):
+        matrix.append(flat_list[i : i + size])
+
+    return matrix
