@@ -76,3 +76,17 @@ def backward_propogate(flat_list, probs, actual_label):
 
     return dW, dB
 
+# update the weights and biases usign this formulae:
+# new value = old value - (learning rate * gradient)
+def update_parameteres(weights, biases, dW, dB, lr=0.01):
+    # iterate though eahc of the 10 ouptut nodes
+    for i in range(len(weights)):
+        # update each of the 784 weight using the formula
+        for j in range(len(weights[i])):
+            # use the formula
+            weights[i][j] -= lr * dW[i][j]
+
+        # update the bias for this node as well
+        biases[i] -= lr * dB[i]
+
+    return weights, biases 
