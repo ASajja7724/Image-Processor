@@ -1,6 +1,8 @@
 import network as net
 from imatrix import load_mnist_csv
 
+import random as r
+
 # training the model
 def train():
     # step one -> load the training data
@@ -12,9 +14,12 @@ def train():
 
     # set learning rate and number of passes
     learning_rate = 0.01
-    repeats = 1 # starting with one for now
+    repeats = 3
 
     for run in range(repeats):
+        # shuffle data to prevent ovefitting
+        r.shuffle(training_data)
+
         total_loss = 0
         correct_predictions = 0
 

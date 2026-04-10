@@ -12,6 +12,7 @@ def draw_matrix(matrix, pixel_size=1, title="Image"):
             if event.type == p.QUIT:
                 running = False
                 p.quit()
+                return
 
 
         # Draw the matrix
